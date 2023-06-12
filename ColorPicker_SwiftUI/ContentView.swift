@@ -8,14 +8,18 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var backgroundColor = Color(.systemBackground)
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        NavigationView {
+            ZStack {
+                backgroundColor
+                ColorPicker("Select color", selection: $backgroundColor)
+                    .padding()
+            }
+            .navigationTitle("Color Picker")
         }
-        .padding()
+        
     }
 }
 
